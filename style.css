@@ -1,16 +1,32 @@
-body{
+body {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; 
-    background-color: red;
+    box-sizing: border-box;
+}
+
+#root{
+    background-color: #b678a4;
     height: 700px;
-    width: 600px;   
+    width: 900px;  
 }
 
-.inner-container{
-    margin: 100px 200px;
-    width: 300px;
-    height: 300px;
+.inner-container {
+    padding: 10px;
+    background-color: #2a1f39;
+    margin: 100px 400px;
+    width: 450px;
+    height: 450px;
     border: 2px solid #2d2d81;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
 }
 
+.cell{
+    border: solid 1px white
+}
+
+.wrapper{
+    margin: 5px;
+    background: #ebf1f4;
+}
