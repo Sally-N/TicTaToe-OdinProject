@@ -1,4 +1,5 @@
  @import url('https://fonts.cdnfonts.com/css/games');
+ @import url('https://fonts.cdnfonts.com/css/daydreamer-3');
 
  body {
      margin: 0;
@@ -7,45 +8,43 @@
  }
 
  #root {
-     padding-top: 20px;
-     background-color: #52d7f2;
-     height: 900px;
+     padding-top: 40px;
+     background-color: #541ebf;
+     height: 1900px;
      /* width: 900px; */
      display: flex;
      flex-direction: column;
+     /* justify-content: center; */
+     align-items: center;
      --cell-size: 100px;
      --mark-size: calc(var(--cell-size) * .9);
-     
+
  }
 
  .game-board {
+     border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+     display: none;
      margin: auto;
-     border: solid 2px black;
-     background-color:#52d7f2;
-  
+     border: solid 5px #ffd652;
+     background-color: #541ebf;
      width: 450px;
      height: 450px;
-     border: 2px solid transparent;
+     /* border: 2px solid transparent; */
      display: grid;
      grid-template-columns: repeat(3, 1fr);
      grid-template-rows: repeat(3, 1fr);
-     gap: 10px;
+     gap: 2px;
  }
 
  .cell {
      border: solid 1px white;
-     border-radius: 3px;
+     border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
      margin: 7px;
      background-color: white;
      display: flex;
      justify-content: center;
      align-items: center;
-     }
-
- /* .cell.x,
- .cell.circle {
-     cursor: not-allowed;
- } */
+ }
 
  .cell.x::before,
  .cell.x::after,
@@ -102,7 +101,93 @@
  }
 
 
- .choice {
+
+
+
+ .winning-message {
+     display: none;
+     height: 300px;
+     display: block;
+ }
+
+ .GameDetailsModal {
+     margin: auto;
+     display: contents;
+ }
+
+ .GameDetailsModalHidden {
+     display: none;
+ }
+
+
+ #formone {
+     padding-top: 30px;
+     display: flex;
+     flex-direction: column;
+     justify-content: flex-start;
+     align-items: center;
+     background-color: #ffd652;
+     margin: auto;
+     height: 500px;
+     width: 400px;
+     border: 2px solid #ffd652;
+     animation: slideFromLeft 3s;
+     border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+ }
+
+
+ @keyframes slideFromLeft {
+     0% {
+         transform: translateX(100%);
+     }
+
+     100% {
+         transform: translateX(0);
+     }
+ }
+
+ #formone label {
+     font-family: 'Daydreamer', sans-serif;
+     font-size: 30px;
+
+ }
+
+ #formone input,
+ #submit {
+     border: transparent;
+     border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+
+ }
+
+ #formone .playername {
+     font-weight: 300;
+     font-family: 'Daydreamer', sans-serif;
+     font-size: 30px;
+     /* border: transparent; */
+     height: 40px;
+     width: 180px;
+     /* border-radius: 255px 15px 225px 15px/15px 225px 15px 255px; */
+ }
+
+ #submit {
+     margin: 20px;
+     width: 200px;
+     height: 50px;
+     border: transparent;
+     font-weight: 300;
+     font-family: 'Daydreamer', sans-serif;
+     font-size: 30px;
+ }
+
+ .checkbox {
+     border: transparent;
+ }
+
+ .colorChangebackground {
+     background-color: #541ebf;
+ }
+
+ /* .choice {
      margin: auto;
      display: flex;
      flex-direction: column;
@@ -159,11 +244,4 @@
          transform: translateX(0);
 
      }
- }
-
-
- .winning-message {
-     display: none;
-     height: 300px;
-     display: block;
- }
+ }*/
