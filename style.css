@@ -1,103 +1,169 @@
- @import url('https://fonts.cdnfonts.com/css/games');                                
+ @import url('https://fonts.cdnfonts.com/css/games');
 
-body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+ body {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+ }
 
-#root {
-    padding-top: 40px;
-    background-color: #52d7f2;
-    height: 900px;
-    /* width: 900px; */
-    display: flex;
-    flex-direction: column;
-}
+ #root {
+     padding-top: 20px;
+     background-color: #52d7f2;
+     height: 900px;
+     /* width: 900px; */
+     display: flex;
+     flex-direction: column;
+     --cell-size: 100px;
+     --mark-size: calc(var(--cell-size) * .9);
+     
+ }
 
-.inner-container {
-    display: none;
-    margin: auto;
-    border: solid 2px black;
-    background-color: transparent;
-    /* margin: 100px 400px; */
-    width: 450px;
-    height: 450px;
-    border: 2px solid transparent;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    gap: 10px;
-}
+ .game-board {
+     margin: auto;
+     border: solid 2px black;
+     background-color:#52d7f2;
+  
+     width: 450px;
+     height: 450px;
+     border: 2px solid transparent;
+     display: grid;
+     grid-template-columns: repeat(3, 1fr);
+     grid-template-rows: repeat(3, 1fr);
+     gap: 10px;
+ }
 
-.cell {
-    border: solid 1px #52d7f2;
-    background-color: #52d7f2;
-    /* box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px; */
-}
+ .cell {
+     border: solid 1px white;
+     border-radius: 3px;
+     margin: 7px;
+     background-color: white;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     }
 
-.wrapper {
-    border: solid 1px white;
-    border-radius: 3px;
-    width: 90%;
-    height: 90%;
-    margin: 7px;
-    background-color: white;
-}
+ /* .cell.x,
+ .cell.circle {
+     cursor: not-allowed;
+ } */
 
-.choice {
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    width: 400px;
-    height: 130px;
-    border: solid 3px black;
-    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
-    position: relative;
-    animation: page-load 2s;
-    
-   
-}
+ .cell.x::before,
+ .cell.x::after,
+ .cell.circle::before {
+     background-color: black;
+ }
 
-.choice h3{
-    font-family: 'Games', sans-serif;
-    font-size: 45px;
-    text-align: center;
-    padding-bottom: 0;
-    margin-bottom: 0;                                                
-}
+ .game-board.x .cell:not(.x):not(.circle):hover::before,
+ .game-board.x .cell:not(.x):not(.circle):hover::after,
+ .game-board.circle .cell:not(.x):not(.circle):hover::before {
+     background-color: lightgrey;
+ }
 
-.choices{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-}
+ .cell.x::before,
+ .cell.x::after,
+ .game-board.x .cell:not(.x):not(.circle):hover::before,
+ .game-board.x .cell:not(.x):not(.circle):hover::after {
+     content: '';
+     position: absolute;
+     width: calc(var(--mark-size) * .15);
+     height: var(--mark-size);
+ }
+
+ .cell.x::before,
+ .game-board.x .cell:not(.x):not(.circle):hover::before {
+     transform: rotate(45deg);
+ }
+
+ .cell.x::after,
+ .game-board.x .cell:not(.x):not(.circle):hover::after {
+     transform: rotate(-45deg);
+ }
+
+ .cell.circle::before,
+ .cell.circle::after,
+ .game-board.circle .cell:not(.x):not(.circle):hover::before,
+ .game-board.circle .cell:not(.x):not(.circle):hover::after {
+     content: '';
+     position: absolute;
+     border-radius: 50%;
+ }
+
+ .cell.circle::before,
+ .game-board.circle .cell:not(.x):not(.circle):hover::before {
+     width: var(--mark-size);
+     height: var(--mark-size);
+ }
+
+ .cell.circle::after,
+ .game-boards.circle .cell:not(.x):not(.circle):hover::after {
+     width: calc(var(--mark-size) * .7);
+     height: calc(var(--mark-size) * .7);
+     background-color: white;
+ }
+
+
+ .choice {
+     margin: auto;
+     display: flex;
+     flex-direction: column;
+     width: 400px;
+     height: 140px;
+     border: solid 3px black;
+     border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+     position: relative;
+     animation: page-load 2s;
+     margin-bottom: 10px;
+
+
+ }
+
+ .choice h3 {
+     font-family: 'Games', sans-serif;
+     font-size: 45px;
+     text-align: center;
+     padding-bottom: 0;
+     margin-bottom: 0;
+ }
+
+ .choices {
+     display: flex;
+     flex-direction: row;
+     justify-content: space-around;
+     align-items: center;
+ }
 
 
 
-.choices h5, .choices h5{
-   
-   font-size: 70px;
-}
+ .choices h5,
+ .choices h5 {
 
-.x{
-    color: #E1341E;
-}
+     font-size: 70px;
+ }
 
-.o{
-    color: #db24b5
-}
+ .x {
+     color: #E1341E;
+ }
+
+ .o {
+     color: #db24b5
+ }
 
 
-@keyframes page-load{
-    0%{
-        transform: translateX(-100%);
+ @keyframes page-load {
+     0% {
+         transform: translateX(-100%);
 
-    }
+     }
 
-    100%{
-        transform: translateX(0);
+     100% {
+         transform: translateX(0);
 
-    }
-}
+     }
+ }
+
+
+ .winning-message {
+     display: none;
+     height: 300px;
+     display: block;
+ }
