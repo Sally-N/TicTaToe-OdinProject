@@ -40,7 +40,7 @@
      border: solid 1px white;
      border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
      margin: 7px;
-     background-color: white;
+     background-color: #541ebf;
      display: flex;
      justify-content: center;
      align-items: center;
@@ -49,7 +49,7 @@
  .cell.x::before,
  .cell.x::after,
  .cell.circle::before {
-     background-color: black;
+     background-color: #ff3f74;
  }
 
  .game-board.x .cell:not(.x):not(.circle):hover::before,
