@@ -21,10 +21,15 @@
 
  }
 
- .game-board {
-     border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+ .game-display {
      display: none;
+     padding-bottom: 20px;
+
+ }
+
+ .game-board {
      margin: auto;
+     border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
      border: solid 5px #ffd652;
      background-color: #541ebf;
      width: 450px;
@@ -185,6 +190,24 @@
 
  .colorChangebackground {
      background-color: #541ebf;
+ }
+
+ .button {
+     margin: auto;
+     width: 150px;
+     height: 50px;
+ }
+
+ button {
+     font-family: 'Daydreamer', sans-serif;
+     font-size: 30px;
+     /* margin: auto; */
+     background-color: #ffd652;
+     color: black;
+     width: 150px;
+     height: 50px;
+     border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+
  }
 
  /* .choice {
