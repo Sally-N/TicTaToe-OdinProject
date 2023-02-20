@@ -28,8 +28,7 @@ const gamePage = document.getElementById("root");
 const gameDisplay = document.querySelector(".game-display")
 console.log(gameDisplay);
 const restartButton = document.querySelector(".restart");
-const xname = document.getElementById("xname").value;
-const oname = document.getElementById("oname").value;
+
 
 gameDetailsForm.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -44,8 +43,8 @@ let currentPlayer;
 
 ///get form data
 function getFormDetails() {
-    xname;
-    oname;   
+    const xname = document.getElementById("xname").value;
+    const oname = document.getElementById("oname").value;
     let gameType = '';
 
     if (document.getElementById("checkboxone").checked) {
@@ -75,6 +74,7 @@ const initiateGameFactory = (e) => {
     gameStatus = true;
     console.log("yes", gameStatus);
 
+
 }
 
 const restartGameFactory = (e) => {
@@ -85,7 +85,12 @@ const restartGameFactory = (e) => {
 const gameBoardCells = () => {
     const allCells = Array.from(gameCells)
     allCells.forEach(cell => {
-        cell.addEventListener('click', initiateGameFactory, { once: true });
+        cell.addEventListener('click', addToClasX, { once: true });
+        function addToClasX() {
+            cell.textContent("X")
+            gameStatus = true;
+        };
+
         // restartButton.addEventListener('click', restartGame);
     });
 }
@@ -93,18 +98,18 @@ const gameBoardCells = () => {
 
 
 
-const gameMovesFactory = () => {
-    gameBoardCells;
-    initiateGameFactory;
-    getFormDetails;
+// const gameMovesFactory = () => {
+//     gameBoardCells;
+//     // initiateGameFactory;
+//     getFormDetails;
 
-    const changePlayers = () => {
-        player = (player == xname) ? oname : xname;
-        currentPlayer = (currentPlayer == xname) ? oname : xname;
-        
-    }
+//     const changePlayers = () => {
+//         player = (player == xname) ? oname : xname;
+//         currentPlayer = (currentPlayer == xname) ? oname : xname;
 
-}
+//     }
+
+// }
 
 
 
