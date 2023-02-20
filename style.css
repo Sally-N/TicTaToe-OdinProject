@@ -198,7 +198,9 @@
      height: 50px;
  }
 
- button {
+ .restart {
+    border: 2px solid #ffd652;
+     margin-top: 30px;
      font-family: 'Daydreamer', sans-serif;
      font-size: 30px;
      /* margin: auto; */
